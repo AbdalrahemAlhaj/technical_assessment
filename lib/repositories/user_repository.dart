@@ -9,7 +9,6 @@ class UserRepository{
   Future<List<User>> getAllUsers() async {
 
     final Response response = await _client.getUsers();
-    print(response.data);
     if (response.statusCode == 200 && response.data != null) {
       users = List<User>.from(response.data.map((user) => User.fromJson(user)));
       return users;
